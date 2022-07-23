@@ -1,9 +1,6 @@
 package com.example.airline.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table (name = "Staff")
@@ -23,15 +20,20 @@ public class Staff {
     @Column (name = "Category")
     private String Category;
 
+    @OneToMany
+    @JoinColumn (name = "Flight")
+    private Flight Flight;
+
     public Staff(){
 
     }
 
-    public Staff(long staffID, long name, String gender, String category) {
+    public Staff(long staffID, long name, String gender, String category, com.example.airline.Model.Flight flight) {
         StaffID = staffID;
         Name = name;
         Gender = gender;
         Category = category;
+        Flight = flight;
     }
 
     public long getStaffID() {
@@ -66,6 +68,14 @@ public class Staff {
         Category = category;
     }
 
+    public com.example.airline.Model.Flight getFlight() {
+        return Flight;
+    }
+
+    public void setFlight(com.example.airline.Model.Flight flight) {
+        Flight = flight;
+    }
+
     @Override
     public String toString() {
         return "Staff{" +
@@ -73,6 +83,7 @@ public class Staff {
                 ", Name=" + Name +
                 ", Gender='" + Gender + '\'' +
                 ", Category='" + Category + '\'' +
+                ", Flight=" + Flight +
                 '}';
     }
 }

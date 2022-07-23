@@ -32,12 +32,22 @@ public class Flight {
     @JoinColumn (name = "StaffID")
     private Staff staff;
 
+    @OneToOne
+    @JoinColumn (name = "Passenger")
+    private Passenger passenger;
+
+    @OneToOne
+    @JoinColumn (name = "Ticket_ID")
+    private Ticket Ticket;
+
+
+
 
    public Flight(){
 
    }
 
-    public Flight(long flightNumber, long date, int time, String boardinngGate, long capacity, String model, Staff staff) {
+    public Flight(long flightNumber, long date, int time, String boardinngGate, long capacity, String model, Staff staff, Passenger passenger, com.example.airline.Model.Ticket ticket) {
         FlightNumber = flightNumber;
         Date = date;
         Time = time;
@@ -45,6 +55,8 @@ public class Flight {
         Capacity = capacity;
         Model = model;
         this.staff = staff;
+        this.passenger = passenger;
+        Ticket = ticket;
     }
 
     public long getFlightNumber() {
@@ -103,6 +115,22 @@ public class Flight {
         this.staff = staff;
     }
 
+    public Passenger getPassenger() {
+        return passenger;
+    }
+
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
+    }
+
+    public com.example.airline.Model.Ticket getTicket() {
+        return Ticket;
+    }
+
+    public void setTicket(com.example.airline.Model.Ticket ticket) {
+        Ticket = ticket;
+    }
+
     @Override
     public String toString() {
         return "Flight{" +
@@ -113,6 +141,8 @@ public class Flight {
                 ", Capacity=" + Capacity +
                 ", Model='" + Model + '\'' +
                 ", staff=" + staff +
+                ", passenger=" + passenger +
+                ", Ticket=" + Ticket +
                 '}';
     }
 }

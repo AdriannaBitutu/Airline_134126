@@ -13,3 +13,7 @@ INSERT INTO Flight(FlightNumber,fDate,fTime,BoardingGate,Capacity,Model,staff) V
 
 INSERT INTO Flight(FlightNumber,fDate,fTime,BoardingGate,Capacity,Model,staff) VALUES ("45876","28-07-2022","10:30","Gate A","356","Boeing 557","124700");
 INSERT INTO Flight(FlightNumber,fDate,fTime,BoardingGate,Capacity,Model,staff) VALUES ("45876","28-07-2022","10:30","Gate A","356","Boeing 557","134518");
+
+INSERT INTO Passenger(PassengerID,pName,Gender,Age,PhoneNumber) VALUES ("1","John Smith","Male","25","123456789");
+INSERT INTO Passenger(PassengerID,pName,Gender,Age,PhoneNumber) VALUES ("2","James Smith","Male","25","123487654");
+INSERT INTO Passenger(PassengerID,pName,Gender,Age,PhoneNumber) VALUES ("3","Jane Doe","Female","25","123450987");
